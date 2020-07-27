@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import ReactFCCtest from 'react-fcctest';
 import './App.css';
 let sessionInterval
 class App extends Component {
@@ -10,7 +10,19 @@ class App extends Component {
     sessionTimeRemaining: 25*60,
     sessionActive:false,
     breakActive:false,
-    currentDisplay:"Session"
+    currentDisplay:"Session",
+
+  }
+
+  convertTime=(input)=>{
+    let seconds = input % 60
+    let minutes = Math.floor(input / 60)
+    
+    seconds = seconds < 10 ? ("0"+seconds): seconds
+    minutes = minutes < 10 ? ("0"+minutes): minutes
+
+    return `${minutes}:${seconds}`
+    
   }
 
 
@@ -35,6 +47,8 @@ playPause=()=>{
       else{
         this.setState((prevState) => {return    {sessionTimeRemaining:prevState.sessionTimeRemaining -1}})
       }
+
+     
 
 
     },1000)
@@ -88,38 +102,40 @@ componentDidUpdate(prevProps,prevState) {
   if (this.state.sessionLength !== prevState.sessionLength) {
     this.setState({sessionTimeRemaining:this.state.sessionLength*60})
   }
-} //needs prevProps enent not using, else infinite loop
+
+
+} //needs prevProps even not using, else infinite loop
 
 
 render(){
-  
+
     return (
       
     <div className="App">
       <div className="break">
         <h3 id="break-label">Break length</h3>
-        <h3>{this.state.breakLength}</h3>
+        <h3 id="break-length">{this.state.breakLength}</h3>
         <button onClick={this.handleClick} id="break-increment">+</button>
         <button onClick={this.handleClick} id="break-decrement" disabled={this.state.breakLength===1 ? true: false}>-</button>
       </div>
 
       <div className="session">
       <h3 id="session-label">Session length</h3>
-        <h3>{this.state.sessionLength}</h3>
+        <h3 id="session-length">{this.state.sessionLength}</h3>
         <button id="session-increment"  onClick={this.handleClick}>+</button>
         <button id="session-decrement" onClick={this.handleClick} disabled={this.state.sessionLength===1 ? true: false}>-</button>
       </div>
 
       <div className="display">
-      <h2>{this.state.currentDisplay}</h2>
-        <h3>{`${Math.floor(this.state.sessionTimeRemaining/60)}:${this.state.sessionTimeRemaining%60} `}</h3>
+      <h2 id="timer-label">{this.state.currentDisplay}</h2>
+        <h3 id="time-left">{this.convertTime(this.state.sessionTimeRemaining)}</h3>
         <button onClick={this.playPause} disabled={this.state.sessionActive}>Play</button>
         <button onClick={this.playPause} disabled={!this.state.sessionActive}>Pause</button>
       </div>
 
 
 
-
+    <ReactFCCtest />
     </div>
   );
 }
