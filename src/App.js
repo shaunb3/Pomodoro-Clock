@@ -3,6 +3,11 @@ import ReactFCCtest from 'react-fcctest';
 import './App.css';
 let sessionInterval
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.audio = React.createRef();
+  }
+   
 
   state={
     breakLength:5,
@@ -37,7 +42,8 @@ playPause=()=>{
       
 
       if(this.state.sessionTimeRemaining===0){
-
+        this.audio.current.play()
+        console.log(this.audio)
         this.state.currentDisplay==="Session" ?
           this.setState({
             sessionTimeRemaining:this.state.breakLength*60 ,currentDisplay:"Break"})
@@ -67,15 +73,31 @@ playPause=()=>{
   
 }
 
+reset =()=>{
+  clearInterval(sessionInterval)
+  
+  this.setState({
+    sessionTimeRemaining: 25*60,
+    breakLength:5, 
+    sessionLength:25,
+    breakActive:false,
+    sessionActive:false,
+    currentDisplay:"Session"
+    })
+    this.audio.current.pause()
+    this.audio.current.currentTime = 0
+}
+
     
 
   handleClick=(event)=>{
-    if(this.state.breakLength<1 || this.state.sessionLength<1){
-      return
-    }
+   
 
-    else if(event.target.id ==="break-increment"){
+ 
+    if(event.target.id ==="break-increment"){
+      if(this.state.breakLength<60){
       this.setState((prevState)=> {return{breakLength: prevState.breakLength + 1}})
+      }
     }
 
     else if(event.target.id ==="break-decrement"){
@@ -85,7 +107,9 @@ playPause=()=>{
     }
 
     else if(event.target.id ==="session-increment"){
+      if(this.state.sessionLength<60){
       this.setState((prevState)=> {return{sessionLength: prevState.sessionLength + 1}})
+      }
     }
 
     else if(event.target.id ==="session-decrement"){
@@ -129,8 +153,15 @@ render(){
       <div className="display">
       <h2 id="timer-label">{this.state.currentDisplay}</h2>
         <h3 id="time-left">{this.convertTime(this.state.sessionTimeRemaining)}</h3>
-        <button onClick={this.playPause} disabled={this.state.sessionActive}>Play</button>
-        <button onClick={this.playPause} disabled={!this.state.sessionActive}>Pause</button>
+        <button id="start_stop" onClick={this.playPause}>{this.state.sessionActive? "pause": "play"}</button>
+        
+        <button id="reset" onClick={this.reset}>Reset</button>
+        <audio
+        ref={this.audio}
+        id="beep"
+        src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"/>
+        
+
       </div>
 
 
