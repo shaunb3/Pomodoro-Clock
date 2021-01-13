@@ -22,22 +22,37 @@
 
 .display{
   
-  width:500px;
+  width:440px;
   display: flex;
   align-items:center;
 
 }
 
-#time-left{
-  background-color: #ACB1B5;
+.secondary-display{
+  display: flex;
+  justify-content: space-between;
+  margin-top:25px;
+  padding-top:5px;
+  border-top:1px solid black;
+}
+
+.digits{
+ background-color: #ACB1B5;
   border-radius:15px;
-  padding: 40px 60px;
-  font-size: 50px;
+   padding: 0px 60px;
+  padding-top:20px;
+  padding-bottom:10px;
+  
+  
   font-family: 'Digital Numbers Regular';
 
      -moz-box-shadow:    inset 0 0 10px #000000;
    -webkit-box-shadow: inset 0 0 10px #000000;
    box-shadow:         inset 0 0 10px #000000;
+}
+
+#time-left{
+ font-size: 50px;
 }
 
 .buttons-con{
@@ -92,3 +107,13 @@
 }
 
 
+.secondary-buttons{
+  width:300px;
+  display:flex;
+  justify-content: space-between;
+  padding-left: 13px;
+}
+
+#timer-label{
+  padding-bottom:10px;
+}

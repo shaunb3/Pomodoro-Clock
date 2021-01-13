@@ -21,6 +21,7 @@ class App extends Component {
     sessionActive:false,
     breakActive:false,
     currentDisplay:"Session",
+    ringColor:'#E48F2E'
 
   }
 
@@ -42,13 +43,14 @@ playPause=()=>{
 
   if(this.state.sessionActive === false){
       
+      this.setState({ringColor: '#E48F2E'})
 
       sessionInterval = setInterval(()=>{
       
 
       if(this.state.sessionTimeRemaining===0){
         this.audio.current.play()
-        console.log(this.audio)
+        
         this.state.currentDisplay==="Session" ?
           this.setState({
             sessionTimeRemaining:this.state.breakLength*60 ,currentDisplay:"Break"})
@@ -63,13 +65,13 @@ playPause=()=>{
 
 
     },1000)
-    this.setState({sessionActive:true})
+    this.setState({sessionActive:true, ringColor:'green'})
 
    
   }
   else{
     clearInterval(sessionInterval)    
-    this.setState({sessionActive:false})
+    this.setState({sessionActive:false, ringColor: '#E48F2E'})
     
 
   }
@@ -142,21 +144,28 @@ render(){
       
     <div className="App">
       <div className="timer-body">
-      <h2 id="timer-label">{this.state.currentDisplay}</h2>
+      
         <div className="display">
-          
-            <div id="time-left">{this.convertTime(this.state.sessionTimeRemaining)}</div>
-              <div className="buttons-con">
-                  <div className="btn-ring">
-                    <div className="button" id="start_stop" onClick={this.playPause}>
-                    {this.state.sessionActive? <img className="icon pause-icon" src={pauseIcon}/> : <img className="icon" src={playIcon}/>}</div>
-                  </div>
+            <div className="digits">
+            <div id="timer-label">{this.state.currentDisplay}</div>
+                <div id="time-left">{this.convertTime(this.state.sessionTimeRemaining)}</div>
+                <div className="secondary-display">
+                  <div id="break-length">{this.state.breakLength}</div>
+                  <div id="session-length">{this.state.sessionLength}</div>
+                </div>
+            </div>
+                  <div className="buttons-con">
+                      <div className="btn-ring" style={{backgroundColor:`${this.state.ringColor}`}}>
+                        <div className="button" id="start_stop" onClick={this.playPause}>
+                        {this.state.sessionActive? <img className="icon pause-icon" src={pauseIcon}/> : <img className="icon" src={playIcon}/>}</div>
+                      </div>
 
-                  <div>
-                    <div className="button" id="reset" onClick={this.reset}><img className="icon" src={resetIcon}/></div>
-                  </div>
+                      <div>
+                        <div className="button" id="reset" onClick={this.reset}><img className="icon" src={resetIcon}/></div>
+                      </div>
 
-              </div>
+                  </div>
+              
             <audio
             ref={this.audio}
             id="beep"
@@ -165,19 +174,20 @@ render(){
 
         </div>
 
+          <div className="secondary-buttons">
+              <div className="break">
+                <h3 id="break-label">Break length</h3>
+                
+                <button onClick={this.handleClick} id="break-increment">+</button>
+                <button onClick={this.handleClick} id="break-decrement" disabled={this.state.breakLength===1 ? true: false}>-</button>
+              </div>
 
-          <div className="break">
-            <h3 id="break-label">Break length</h3>
-            <h3 id="break-length">{this.state.breakLength}</h3>
-            <button onClick={this.handleClick} id="break-increment">+</button>
-            <button onClick={this.handleClick} id="break-decrement" disabled={this.state.breakLength===1 ? true: false}>-</button>
-          </div>
-
-          <div className="session">
-          <h3 id="session-label">Session length</h3>
-            <h3 id="session-length">{this.state.sessionLength}</h3>
-            <button id="session-increment"  onClick={this.handleClick}>+</button>
-            <button id="session-decrement" onClick={this.handleClick} disabled={this.state.sessionLength===1 ? true: false}>-</button>
+              <div className="session">
+              <h3 id="session-label">Session length</h3>
+                
+                <button id="session-increment"  onClick={this.handleClick}>+</button>
+                <button id="session-decrement" onClick={this.handleClick} disabled={this.state.sessionLength===1 ? true: false}>-</button>
+              </div>
           </div>
       </div>
       
