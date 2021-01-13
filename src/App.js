@@ -1,6 +1,11 @@
 import React,{Component} from 'react';
 import ReactFCCtest from 'react-fcctest';
 import './App.css';
+// import './play_pause.svg'
+import playIcon from './play.svg'
+import pauseIcon from './pause.svg'
+import resetIcon from './reset.svg'
+
 let sessionInterval
 class App extends Component {
   constructor(props){
@@ -136,36 +141,45 @@ render(){
     return (
       
     <div className="App">
-
-    <div className="display">
+      <div className="timer-body">
       <h2 id="timer-label">{this.state.currentDisplay}</h2>
-        <div id="time-left">{this.convertTime(this.state.sessionTimeRemaining)}</div>
-        <button id="start_stop" onClick={this.playPause}>{this.state.sessionActive? "pause": "play"}</button>
-        
-        <button id="reset" onClick={this.reset}>Reset</button>
-        <audio
-        ref={this.audio}
-        id="beep"
-        src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"/>
-        
+        <div className="display">
+          
+            <div id="time-left">{this.convertTime(this.state.sessionTimeRemaining)}</div>
+              <div className="buttons-con">
+                  <div className="btn-ring">
+                    <div className="button" id="start_stop" onClick={this.playPause}>
+                    {this.state.sessionActive? <img className="icon pause-icon" src={pauseIcon}/> : <img className="icon" src={playIcon}/>}</div>
+                  </div>
 
+                  <div>
+                    <div className="button" id="reset" onClick={this.reset}><img className="icon" src={resetIcon}/></div>
+                  </div>
+
+              </div>
+            <audio
+            ref={this.audio}
+            id="beep"
+            src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"/>
+            
+
+        </div>
+
+
+          <div className="break">
+            <h3 id="break-label">Break length</h3>
+            <h3 id="break-length">{this.state.breakLength}</h3>
+            <button onClick={this.handleClick} id="break-increment">+</button>
+            <button onClick={this.handleClick} id="break-decrement" disabled={this.state.breakLength===1 ? true: false}>-</button>
+          </div>
+
+          <div className="session">
+          <h3 id="session-label">Session length</h3>
+            <h3 id="session-length">{this.state.sessionLength}</h3>
+            <button id="session-increment"  onClick={this.handleClick}>+</button>
+            <button id="session-decrement" onClick={this.handleClick} disabled={this.state.sessionLength===1 ? true: false}>-</button>
+          </div>
       </div>
-
-
-      <div className="break">
-        <h3 id="break-label">Break length</h3>
-        <h3 id="break-length">{this.state.breakLength}</h3>
-        <button onClick={this.handleClick} id="break-increment">+</button>
-        <button onClick={this.handleClick} id="break-decrement" disabled={this.state.breakLength===1 ? true: false}>-</button>
-      </div>
-
-      <div className="session">
-      <h3 id="session-label">Session length</h3>
-        <h3 id="session-length">{this.state.sessionLength}</h3>
-        <button id="session-increment"  onClick={this.handleClick}>+</button>
-        <button id="session-decrement" onClick={this.handleClick} disabled={this.state.sessionLength===1 ? true: false}>-</button>
-      </div>
-
       
 
 

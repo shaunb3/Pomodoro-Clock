@@ -21,21 +21,74 @@
 
 
 .display{
-  border: 1px solid black;
-  width:300px;
+  
+  width:500px;
+  display: flex;
+  align-items:center;
 
 }
 
 #time-left{
   background-color: #ACB1B5;
   border-radius:15px;
-  padding: 40px;
+  padding: 40px 60px;
   font-size: 50px;
   font-family: 'Digital Numbers Regular';
 
      -moz-box-shadow:    inset 0 0 10px #000000;
    -webkit-box-shadow: inset 0 0 10px #000000;
    box-shadow:         inset 0 0 10px #000000;
+}
+
+.buttons-con{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  padding:0 20px;
+}
+
+.btn-ring{
+  border-radius:50%;
+  padding:15px;
+  background-color: red;
+  margin:5px;
+  box-shadow: 0 0 1px #000000;
+}
+
+.button{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background-color:gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px #000000;
+  
+}
+
+#start_stop{
+
+}
+
+#rest{
+
+}
+
+.icon{
+  width:20px;
+}
+
+ .pause-icon{
+   width:15px;
+ }
+
+
+.timer-body{
+  background-color: #E5E4E9;
+  padding: 20px;
+  border-radius:15px;
 }
 
 
