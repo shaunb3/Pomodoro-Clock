@@ -136,6 +136,22 @@ render(){
     return (
       
     <div className="App">
+
+    <div className="display">
+      <h2 id="timer-label">{this.state.currentDisplay}</h2>
+        <div id="time-left">{this.convertTime(this.state.sessionTimeRemaining)}</div>
+        <button id="start_stop" onClick={this.playPause}>{this.state.sessionActive? "pause": "play"}</button>
+        
+        <button id="reset" onClick={this.reset}>Reset</button>
+        <audio
+        ref={this.audio}
+        id="beep"
+        src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"/>
+        
+
+      </div>
+
+
       <div className="break">
         <h3 id="break-label">Break length</h3>
         <h3 id="break-length">{this.state.breakLength}</h3>
@@ -150,19 +166,7 @@ render(){
         <button id="session-decrement" onClick={this.handleClick} disabled={this.state.sessionLength===1 ? true: false}>-</button>
       </div>
 
-      <div className="display">
-      <h2 id="timer-label">{this.state.currentDisplay}</h2>
-        <h3 id="time-left">{this.convertTime(this.state.sessionTimeRemaining)}</h3>
-        <button id="start_stop" onClick={this.playPause}>{this.state.sessionActive? "pause": "play"}</button>
-        
-        <button id="reset" onClick={this.reset}>Reset</button>
-        <audio
-        ref={this.audio}
-        id="beep"
-        src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"/>
-        
-
-      </div>
+      
 
 
 

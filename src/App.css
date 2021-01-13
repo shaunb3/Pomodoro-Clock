@@ -1,5 +1,22 @@
+
+    @font-face {
+    font-family: 'Digital Numbers Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Digital Numbers Regular'), url('DigitalNumbers-Regular.woff') format('woff');
+    }
+
+
+
+
+
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:90vh;
+  flex-direction: column;
 }
 
 
@@ -9,5 +26,16 @@
 
 }
 
+#time-left{
+  background-color: #ACB1B5;
+  border-radius:15px;
+  padding: 40px;
+  font-size: 50px;
+  font-family: 'Digital Numbers Regular';
+
+     -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
 
 
