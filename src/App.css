@@ -25,6 +25,7 @@
   width:440px;
   display: flex;
   align-items:center;
+  
 
 }
 
@@ -105,6 +106,7 @@ box-shadow: 0 0 2px #000;
   background-color: #E5E4E9;
   padding: 20px;
   border-radius:15px;
+  box-shadow: 0 0 5px #000000;
 }
 
 
