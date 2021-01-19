@@ -177,16 +177,19 @@ render(){
           <div className="secondary-buttons">
               <div className="break">
                 <h3 id="break-label">Break length</h3>
-                
-                <button onClick={this.handleClick} id="break-increment">+</button>
-                <button onClick={this.handleClick} id="break-decrement" disabled={this.state.breakLength===1 ? true: false}>-</button>
+                  <div className="input-btn-con">
+                    <div className="input-btn" onClick={this.handleClick} id="break-increment">+</div>
+                    <div className="input-btn" onClick={this.handleClick} id="break-decrement" disabled={this.state.breakLength===1 ? true: false}>-</div>
+                  </div>
               </div>
 
               <div className="session">
               <h3 id="session-label">Session length</h3>
-                
-                <button id="session-increment"  onClick={this.handleClick}>+</button>
-                <button id="session-decrement" onClick={this.handleClick} disabled={this.state.sessionLength===1 ? true: false}>-</button>
+                <div className="input-btn-con">
+                  <div className="input-btn" id="session-increment"  onClick={this.handleClick}>+</div>
+                  <div className="input-btn" id="session-decrement" onClick={this.handleClick} disabled={this.state.sessionLength===1 ? true: false}>-</div>
+                </div>
+
               </div>
           </div>
       </div>

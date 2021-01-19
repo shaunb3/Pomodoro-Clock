@@ -81,14 +81,15 @@
   align-items: center;
   box-shadow: 0 0 5px #000000;
   
+  
 }
 
 #start_stop{
 
 }
 
-#rest{
-
+#reset{
+box-shadow: 0 0 2px #000;
 }
 
 .icon{
@@ -116,4 +117,21 @@
 
 #timer-label{
   padding-bottom:10px;
+}
+
+
+.input-btn-con{
+  display:flex;
+}
+
+.input-btn{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background-color:white;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  margin:0px 10px;
+  box-shadow: 0 0 1px #000000;
 }
