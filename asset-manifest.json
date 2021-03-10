@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/Pomodoro-Clock/static/css/main.134fd19f.chunk.css",
-    "main.js": "/Pomodoro-Clock/static/js/main.c4d75c2e.chunk.js",
-    "main.js.map": "/Pomodoro-Clock/static/js/main.c4d75c2e.chunk.js.map",
-    "runtime-main.js": "/Pomodoro-Clock/static/js/runtime-main.75c3ee4e.js",
-    "runtime-main.js.map": "/Pomodoro-Clock/static/js/runtime-main.75c3ee4e.js.map",
-    "static/css/2.0b8fbf56.chunk.css": "/Pomodoro-Clock/static/css/2.0b8fbf56.chunk.css",
-    "static/js/2.cdabf1db.chunk.js": "/Pomodoro-Clock/static/js/2.cdabf1db.chunk.js",
-    "static/js/2.cdabf1db.chunk.js.map": "/Pomodoro-Clock/static/js/2.cdabf1db.chunk.js.map",
+    "main.css": "/Pomodoro-Clock/static/css/main.dd75a78a.chunk.css",
+    "main.js": "/Pomodoro-Clock/static/js/main.e303f54f.chunk.js",
+    "main.js.map": "/Pomodoro-Clock/static/js/main.e303f54f.chunk.js.map",
+    "runtime-main.js": "/Pomodoro-Clock/static/js/runtime-main.087f5969.js",
+    "runtime-main.js.map": "/Pomodoro-Clock/static/js/runtime-main.087f5969.js.map",
+    "static/js/2.ac921165.chunk.js": "/Pomodoro-Clock/static/js/2.ac921165.chunk.js",
+    "static/js/2.ac921165.chunk.js.map": "/Pomodoro-Clock/static/js/2.ac921165.chunk.js.map",
     "index.html": "/Pomodoro-Clock/index.html",
-    "precache-manifest.69fe1b641dd4db56b1c3700ef3565130.js": "/Pomodoro-Clock/precache-manifest.69fe1b641dd4db56b1c3700ef3565130.js",
+    "precache-manifest.e3f1f823ad86069c859e09df61423ba1.js": "/Pomodoro-Clock/precache-manifest.e3f1f823ad86069c859e09df61423ba1.js",
     "service-worker.js": "/Pomodoro-Clock/service-worker.js",
-    "static/css/2.0b8fbf56.chunk.css.map": "/Pomodoro-Clock/static/css/2.0b8fbf56.chunk.css.map",
-    "static/css/main.134fd19f.chunk.css.map": "/Pomodoro-Clock/static/css/main.134fd19f.chunk.css.map"
+    "static/css/main.dd75a78a.chunk.css.map": "/Pomodoro-Clock/static/css/main.dd75a78a.chunk.css.map",
+    "static/media/App.css": "/Pomodoro-Clock/static/media/DigitalNumbers-Regular.373a1f60.woff",
+    "static/media/pause.svg": "/Pomodoro-Clock/static/media/pause.7d76ade1.svg",
+    "static/media/play.svg": "/Pomodoro-Clock/static/media/play.ab742698.svg",
+    "static/media/reset.svg": "/Pomodoro-Clock/static/media/reset.05bc37d1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.75c3ee4e.js",
-    "static/css/2.0b8fbf56.chunk.css",
-    "static/js/2.cdabf1db.chunk.js",
-    "static/css/main.134fd19f.chunk.css",
-    "static/js/main.c4d75c2e.chunk.js"
+    "static/js/runtime-main.087f5969.js",
+    "static/js/2.ac921165.chunk.js",
+    "static/css/main.dd75a78a.chunk.css",
+    "static/js/main.e303f54f.chunk.js"
   ]
 }
