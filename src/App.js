@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import ReactFCCtest from 'react-fcctest';
+
 import './App.css';
 // import './play_pause.svg'
 import playIcon from './play.svg'
@@ -197,7 +197,7 @@ render(){
 
 
 
-    <ReactFCCtest />
+    
     </div>
   );
 }
